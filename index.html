@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#1f6f54" />
+  <meta name="description" content="Ajedrez Maestro: juega contra la IA, aprende estrategias y mejora. Ideal para colegios." />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <title>Ajedrez Maestro</title>
+</head>
+<body>
+  <div id="app">
+    <!-- Cabecera -->
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-logo">♞</span>
+        <div>
+          <h1 id="appName">Ajedrez Maestro</h1>
+          <p id="tagline" class="tagline">Juega, aprende y mejora</p>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <button id="installBtn" class="icon-btn hidden" title="Instalar">⬇️</button>
+        <select id="langSelect" class="lang-select" aria-label="Idioma"></select>
+      </div>
+    </header>
+
+    <!-- Navegación por pestañas -->
+    <nav class="tabs">
+      <button class="tab active" data-view="play"><span>♟️</span><b id="tabPlay">Jugar</b></button>
+      <button class="tab" data-view="learn"><span>📚</span><b id="tabLearn">Aprender</b></button>
+      <button class="tab" data-view="settings"><span>⚙️</span><b id="tabSettings">Ajustes</b></button>
+    </nav>
+
+    <main>
+      <!-- ===================== VISTA JUGAR ===================== -->
+      <section id="view-play" class="view active">
+        <div class="play-layout">
+          <div class="board-col">
+            <div id="topPlayer" class="player-bar">
+              <span class="player-name">IA</span>
+              <div id="capturedByMe" class="captured"></div>
+            </div>
+
+            <div id="boardWrap" class="board-wrap">
+              <div id="board" class="board"></div>
+            </div>
+
+            <div id="bottomPlayer" class="player-bar">
+              <span class="player-name" id="youLabel">Tú</span>
+              <div id="capturedByAI" class="captured"></div>
+            </div>
+
+            <div id="status" class="status">Tu turno</div>
+
+            <div class="controls">
+              <button id="newGameBtn" class="btn primary">♻️ <span id="btnNew">Nueva</span></button>
+              <button id="hintBtn" class="btn">💡 <span id="btnHint">Pista</span></button>
+              <button id="undoBtn" class="btn">↩️ <span id="btnUndo">Deshacer</span></button>
+              <button id="flipBtn" class="btn">🔄 <span id="btnFlip">Girar</span></button>
+            </div>
+          </div>
+
+          <aside class="side-col">
+            <div class="panel">
+              <h3 id="lblLevel">Nivel</h3>
+              <input type="range" id="levelRange" min="1" max="6" value="3" />
+              <div id="levelName" class="level-name">Medio</div>
+            </div>
+            <div class="panel">
+              <h3 id="lblMoves">Jugadas</h3>
+              <ol id="moveList" class="move-list"></ol>
+            </div>
+            <div id="coachBox" class="panel coach hidden">
+              <h3 id="coachTitle">Consejo del profesor</h3>
+              <p id="coachText"></p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ===================== VISTA APRENDER ===================== -->
+      <section id="view-learn" class="view">
+        <div id="lessonList" class="lesson-list"></div>
+        <article id="lessonDetail" class="lesson-detail hidden"></article>
+      </section>
+
+      <!-- ===================== VISTA AJUSTES ===================== -->
+      <section id="view-settings" class="view">
+        <div class="panel">
+          <h3 id="lblBoard">Tablero (color)</h3>
+          <div id="themeGrid" class="chip-grid"></div>
+        </div>
+        <div class="panel">
+          <h3 id="lblPieces">Piezas (forma)</h3>
+          <div id="pieceGrid" class="chip-grid"></div>
+        </div>
+        <div class="panel">
+          <h3 id="lblSquares">Casillas</h3>
+          <div class="row">
+            <label class="toggle"><input type="radio" name="sq" value="flat" checked /> <span id="sqFlat">Cuadradas</span></label>
+            <label class="toggle"><input type="radio" name="sq" value="round" /> <span id="sqRound">Redondeadas</span></label>
+          </div>
+        </div>
+        <div class="panel">
+          <h3 id="lblColor">Elige tu color</h3>
+          <div class="row">
+            <label class="toggle"><input type="radio" name="pc" value="w" checked /> <span id="optWhite">Blancas</span></label>
+            <label class="toggle"><input type="radio" name="pc" value="b" /> <span id="optBlack">Negras</span></label>
+            <label class="toggle"><input type="radio" name="pc" value="r" /> <span id="optRandom">Aleatorio</span></label>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="row between">
+            <h3 id="lblSound">Sonidos</h3>
+            <label class="switch"><input type="checkbox" id="soundToggle" checked /><span class="slider"></span></label>
+          </div>
+          <div class="row between">
+            <h3 id="lblCoords">Coordenadas</h3>
+            <label class="switch"><input type="checkbox" id="coordsToggle" checked /><span class="slider"></span></label>
+          </div>
+        </div>
+        <div class="panel about">
+          <p><b>Ajedrez Maestro</b> · Modo colegio 🎓</p>
+          <p class="muted">App de ajedrez con IA integrada, pistas tipo profesor y estrategias reales. Funciona sin conexión.</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Diálogo de coronación -->
+    <div id="promoDialog" class="dialog hidden">
+      <div class="dialog-card">
+        <h3 id="promoTitle">Coronación: elige pieza</h3>
+        <div id="promoChoices" class="promo-choices"></div>
+      </div>
+    </div>
+
+    <!-- Diálogo de fin de partida -->
+    <div id="endDialog" class="dialog hidden">
+      <div class="dialog-card center">
+        <div id="endIcon" class="end-icon">🏆</div>
+        <h2 id="endTitle">¡Ganaste!</h2>
+        <p id="endSubtitle"></p>
+        <button id="endNewBtn" class="btn primary">Nueva partida</button>
+        <button id="endCloseBtn" class="btn">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
