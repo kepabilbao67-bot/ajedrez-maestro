@@ -221,3 +221,37 @@ input[type="range"] { width: 100%; accent-color: var(--accent-2); }
 .end-icon { font-size: 60px; animation: pop .4s ease; }
 @keyframes pop { 0% { transform: scale(0); } 70% { transform: scale(1.2); } 100% { transform: scale(1); } }
 #endDialog .btn { margin-top: 8px; width: 100%; }
+
+
+/* ===========================================================================
+   Añadidos: reloj de partida, tableros con imagen, modo 2 jugadores, RTL
+   =========================================================================== */
+
+/* Grupo derecho de la barra de jugador (capturadas + reloj) */
+.bar-right { display: flex; align-items: center; gap: 10px; }
+
+/* Reloj */
+.clock {
+  font-variant-numeric: tabular-nums; font-weight: 800; font-size: 18px;
+  background: var(--panel-2); color: var(--text);
+  border: 1px solid var(--border); border-radius: 9px;
+  padding: 5px 12px; min-width: 70px; text-align: center; letter-spacing: .5px;
+}
+.clock.active { background: var(--accent); color: #fff; border-color: var(--accent-2); box-shadow: 0 0 0 2px rgba(46,157,120,.35); }
+.clock.low { color: #ff6b6b; }
+.clock.active.low { background: #7d2b2b; color: #fff; border-color: #b04545; box-shadow: 0 0 0 2px rgba(176,69,69,.4); }
+
+/* Vista previa del control de tiempo en ajustes */
+.time-preview { font-size: 24px; height: 34px; display: grid; place-items: center; margin-bottom: 6px; }
+
+/* Tableros con TEXTURA (imágenes) */
+.board.textured .sq.light { background-image: var(--light-img); background-size: cover; background-position: center; }
+.board.textured .sq.dark { background-image: var(--dark-img); background-size: cover; background-position: center; }
+
+/* Soporte derecha-a-izquierda (árabe) */
+[dir="rtl"] .topbar { direction: rtl; }
+[dir="rtl"] .player-bar { direction: rtl; }
+[dir="rtl"] .move-list { padding-left: 0; padding-right: 26px; }
+[dir="rtl"] .lesson-detail .tip { border-left: none; border-right: 4px solid var(--accent-2); }
+/* El tablero de ajedrez NO se invierte: las coordenadas se gestionan en JS */
+[dir="rtl"] .board { direction: ltr; }

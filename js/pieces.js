@@ -23,6 +23,10 @@ export const BOARD_THEMES = [
   { id: 'night',  name: 'Noche',    light: '#6f7780', dark: '#2e343b' },
   { id: 'coral',  name: 'Coral',    light: '#fbe9d0', dark: '#d08b5b' },
   { id: 'purple', name: 'Púrpura',  light: '#e7e2f3', dark: '#7d6aa6' },
+  // Tableros con IMÁGENES (texturas). Llevan colores de respaldo por si la imagen no carga.
+  { id: 'wood-img',   name: 'Madera real 🪵', light: '#deb887', dark: '#96643c', lightImg: 'img/wood_light.png',   darkImg: 'img/wood_dark.png' },
+  { id: 'marble-img', name: 'Mármol real 🏛️', light: '#ebe8e2', dark: '#787c82', lightImg: 'img/marble_light.png', darkImg: 'img/marble_dark.png' },
+  { id: 'slate-img',  name: 'Pizarra 🪨',     light: '#cdcdc8', dark: '#464e56', lightImg: 'img/slate_light.png',  darkImg: 'img/slate_dark.png' },
 ];
 
 const UNICODE = {

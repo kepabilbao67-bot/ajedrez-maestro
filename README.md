@@ -2,18 +2,24 @@
 
 App de ajedrez para **jugar, aprender y mejorar**, con IA integrada, pistas tipo
 profesor, estrategias reales (estilo Karpov y Kasparov) explicadas de forma sencilla,
-varios tableros y piezas, interfaz en 7 idiomas y sonidos. **Funciona sin conexión.**
+modo 2 jugadores, reloj de partida, varios tableros (incluidos con textura de imagen)
+y piezas, interfaz en 13 idiomas y sonidos. **Funciona sin conexión.**
 Pensada también para uso escolar.
 
 ## ✨ Qué incluye
 
 - **Jugar contra la IA** con 6 niveles (de principiante a experto).
+- **Modo 2 jugadores** en el mismo dispositivo (sin IA).
+- **Reloj de partida** con varios controles de tiempo (1', 3', 3'+2", 5', 10', 15'+10" o sin reloj).
 - **Pistas "del profesor"**: te dice la mejor jugada y por qué, en lenguaje sencillo.
-- **Sección Aprender**: 7 lecciones (piezas, apertura, tácticas, finales, estilo
-  Karpov, estilo Kasparov, rutina antes de mover).
-- **8 temas de tablero** (colores) y **4 juegos de piezas** (formas): clásicas,
-  modernas en SVG, contorno y letras. Casillas cuadradas o redondeadas.
-- **7 idiomas**: español, inglés, francés, portugués, alemán, italiano y ruso.
+- **Sección Aprender**: 13 lecciones (piezas, apertura, tácticas, finales, aperturas
+  famosas, estructura de peones, mates básicos, cálculo, estilo Karpov, Kasparov,
+  Capablanca, Tal y Fischer).
+- **11 temas de tablero**: 8 de color + 3 con **textura de imagen** (madera, mármol,
+  pizarra). **4 juegos de piezas** (formas): clásicas, modernas en SVG, contorno y
+  letras. Casillas cuadradas o redondeadas.
+- **13 idiomas**: español, inglés, francés, portugués, alemán, italiano, ruso, chino,
+  japonés, árabe (con soporte derecha-a-izquierda), neerlandés, turco y polaco.
 - **Sonidos**: levantar y mover pieza, captura, enroque, jaque y fanfarria de
   campeón al ganar.
 - **PWA**: se instala como una app en Android e iOS y funciona sin internet.

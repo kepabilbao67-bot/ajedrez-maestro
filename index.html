@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no" />
   <meta name="theme-color" content="#1f6f54" />
-  <meta name="description" content="Ajedrez Maestro: juega contra la IA, aprende estrategias y mejora. Ideal para colegios." />
+  <meta name="description" content="Ajedrez Maestro: juega contra la IA o entre 2 jugadores, aprende estrategias y mejora. Ideal para colegios." />
   <link rel="manifest" href="manifest.webmanifest" />
   <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="icons/icon-192.png" />
@@ -41,8 +41,11 @@
         <div class="play-layout">
           <div class="board-col">
             <div id="topPlayer" class="player-bar">
-              <span class="player-name">IA</span>
-              <div id="capturedByMe" class="captured"></div>
+              <span class="player-name" id="topName">IA</span>
+              <div class="bar-right">
+                <div id="topCaptured" class="captured"></div>
+                <span id="topClock" class="clock hidden">5:00</span>
+              </div>
             </div>
 
             <div id="boardWrap" class="board-wrap">
@@ -50,8 +53,11 @@
             </div>
 
             <div id="bottomPlayer" class="player-bar">
-              <span class="player-name" id="youLabel">Tú</span>
-              <div id="capturedByAI" class="captured"></div>
+              <span class="player-name" id="bottomName">Tú</span>
+              <div class="bar-right">
+                <div id="bottomCaptured" class="captured"></div>
+                <span id="bottomClock" class="clock hidden">5:00</span>
+              </div>
             </div>
 
             <div id="status" class="status">Tu turno</div>
@@ -65,7 +71,7 @@
           </div>
 
           <aside class="side-col">
-            <div class="panel">
+            <div id="levelPanel" class="panel">
               <h3 id="lblLevel">Nivel</h3>
               <input type="range" id="levelRange" min="1" max="6" value="3" />
               <div id="levelName" class="level-name">Medio</div>
@@ -90,6 +96,17 @@
 
       <!-- ===================== VISTA AJUSTES ===================== -->
       <section id="view-settings" class="view">
+        <div class="panel">
+          <h3 id="lblMode">Modo de juego</h3>
+          <div class="row">
+            <label class="toggle"><input type="radio" name="mode" value="ai" checked /> <span id="optVsAI">Contra la IA</span></label>
+            <label class="toggle"><input type="radio" name="mode" value="two" /> <span id="optTwo">2 jugadores</span></label>
+          </div>
+        </div>
+        <div class="panel">
+          <h3 id="lblTime">Tiempo por jugador</h3>
+          <div id="timeGrid" class="chip-grid"></div>
+        </div>
         <div class="panel">
           <h3 id="lblBoard">Tablero (color)</h3>
           <div id="themeGrid" class="chip-grid"></div>
@@ -125,7 +142,7 @@
         </div>
         <div class="panel about">
           <p><b>Ajedrez Maestro</b> · Modo colegio 🎓</p>
-          <p class="muted">App de ajedrez con IA integrada, pistas tipo profesor y estrategias reales. Funciona sin conexión.</p>
+          <p class="muted">App de ajedrez con IA integrada, pistas tipo profesor, modo 2 jugadores, reloj y estrategias reales. Funciona sin conexión.</p>
         </div>
       </section>
     </main>

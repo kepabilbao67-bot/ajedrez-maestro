@@ -1,5 +1,5 @@
 /* Service Worker — cachea la app para que funcione sin conexión. */
-const CACHE = 'ajedrez-maestro-v1';
+const CACHE = 'ajedrez-maestro-v2';
 const ASSETS = [
   './',
   './index.html',
@@ -16,6 +16,12 @@ const ASSETS = [
   './icons/icon-192.png',
   './icons/icon-512.png',
   './icons/icon-maskable-512.png',
+  './img/wood_light.png',
+  './img/wood_dark.png',
+  './img/marble_light.png',
+  './img/marble_dark.png',
+  './img/slate_light.png',
+  './img/slate_dark.png',
 ];
 
 self.addEventListener('install', (e) => {
