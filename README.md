@@ -74,6 +74,11 @@ icons/                  Iconos de la app
 
 ## ✅ Calidad
 
-- El motor pasa los tests **perft** estándar (posición inicial y "Kiwipete"),
-  lo que valida reglas, enroques, capturas al paso y coronaciones.
+- El motor pasa los tests **perft** estándar (posición inicial, "Kiwipete" y
+  las posiciones 3, 4 y 5 de chessprogramming.org), lo que valida reglas,
+  enroques, capturas al paso y coronaciones. Están en `test/engine.test.mjs`
+  y se ejecutan con `npm test` (sin instalar nada; también en GitHub Actions).
+- `npm run build` prepara `vercel-public/` y pone a la caché del service worker
+  un nombre calculado a partir del contenido. Así, cada despliegue con cambios
+  llega a los usuarios sin tener que subir la versión a mano.
 - La IA encuentra mates en uno, captura material colgado y se defiende.

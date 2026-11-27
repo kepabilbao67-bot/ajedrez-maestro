@@ -1,0 +1,9 @@
+{
+  "name": "ajedrez-maestro",
+  "private": true,
+  "description": "App de ajedrez web sin dependencias. Este archivo solo define comandos; no hay que instalar nada.",
+  "scripts": {
+    "build": "node scripts/build-vercel.mjs",
+    "test": "node --test test/*.test.mjs"
+  }
+}
